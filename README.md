@@ -1,3 +1,7 @@
+# Proyecto Cloud Computing (CS3P02) 2023-2
+
+> Enlace video checkpoint: [https://drive.google.com/file/d/1PCWxBeAoZjR_s5sOvEMN42a5Ga8jdNtH/view?usp=sharing](https://drive.google.com/file/d/1PCWxBeAoZjR_s5sOvEMN42a5Ga8jdNtH/view?usp=sharing)
+
 ## Acerca del Proyecto
 
 ### Instrucción
