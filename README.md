@@ -29,6 +29,9 @@ Planteando un segundo escenario en el cual se quieren crear volúmenes con datas
 
 De forma así, se cubre el enfoque de Cloud y AI/ML propuesto para este proyecto.
 
+### Fase 3: Monitoreo
+Se utilizó 
+
 ## Resultados
 [Por completar]
 
@@ -40,3 +43,13 @@ De forma así, se cubre el enfoque de Cloud y AI/ML propuesto para este proyecto
 M. Doctor Yuste. 2021. *"How to Create a Docker Image with Jupyter Notebook and Kotlin."* Towards Data Science. [https://towardsdatascience.com/how-to-create-a-docker-image-with-jupyter-notebook-kotlin-2e8bbf212f81](https://towardsdatascience.com/how-to-create-a-docker-image-with-jupyter-notebook-kotlin-2e8bbf212f81)
 
 S. Okada. 2020. *"How to Run Jupyter Notebook on Docker"*. Medium. [https://medium.com/p/7c9748ed209f](https://medium.com/p/7c9748ed209f)
+
+[https://docs.docker.com/get-started/orchestration/](https://docs.docker.com/get-started/orchestration/)
+
+[https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+
+[https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+
+## Anexos
+
+[Imagen en Docker](https://hub.docker.com/repository/docker/strobebug/plant-classifier/general)
