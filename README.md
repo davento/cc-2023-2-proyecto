@@ -24,13 +24,13 @@ Considerando un escenario en el que se quiere compartir el código desarrollado 
 
 Esto permite también almacenar los datos de prueba, el código y los resultados en el contenedor, lo cual va de la mano con el desarrollo Cloud Serverless.
 
+#### Ejecución
+
+
 ### Fase 2: Integración con Kubernetes
-Planteando un segundo escenario en el cual se quieren crear volúmenes con datasets distintos y hacer un entrenamiento distribuído y paralelizado para mejorar el tiempo de entrenamiento y experimentar con el modelo. Dicha tarea requiere la creación de múltiples volúmenes con datasets distintos, por lo cual se usa Kubernetes para realizar esta tarea y herramientas de monitoreo para corroborar la integridad de los resultados.
+Planteando un segundo escenario en el cual se quieren crear volúmenes con datasets distintos y hacer un entrenamiento distribuído y paralelizado para mejorar el tiempo de entrenamiento y experimentar con el modelo. Dicha tarea requiere la creación de múltiples volúmenes, por lo cual se usa Kubernetes para realizar esta tarea. Se hizo uso del dashboard de Kubernetes para corroborar que el deployment se haya realizado de manera correcta.
 
 De forma así, se cubre el enfoque de Cloud y AI/ML propuesto para este proyecto.
-
-### Fase 3: Monitoreo
-Se utilizó 
 
 ## Resultados
 [Por completar]
