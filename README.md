@@ -1,6 +1,8 @@
 # Proyecto Cloud Computing (CS3P02) 2023-2
 
-> Enlace video checkpoint: [https://drive.google.com/file/d/1PCWxBeAoZjR_s5sOvEMN42a5Ga8jdNtH/view?usp=sharing](https://drive.google.com/file/d/1PCWxBeAoZjR_s5sOvEMN42a5Ga8jdNtH/view?usp=sharing)
+> Enlace vídeo checkpoint: [https://drive.google.com/file/d/1PCWxBeAoZjR_s5sOvEMN42a5Ga8jdNtH/view?usp=sharing](https://drive.google.com/file/d/1PCWxBeAoZjR_s5sOvEMN42a5Ga8jdNtH/view?usp=sharing)
+> 
+> Enlace vídeo final: [https://drive.google.com/file/d/1aY5lJhZSSLDEMF_9uwURPxChMEC7E7jU/view?usp=sharing](https://drive.google.com/file/d/1aY5lJhZSSLDEMF_9uwURPxChMEC7E7jU/view?usp=sharing)
 
 ## Acerca del Proyecto
 
@@ -24,19 +26,53 @@ Considerando un escenario en el que se quiere compartir el código desarrollado 
 
 Esto permite también almacenar los datos de prueba, el código y los resultados en el contenedor, lo cual va de la mano con el desarrollo Cloud Serverless.
 
-#### Ejecución
-
-
 ### Fase 2: Integración con Kubernetes
 Planteando un segundo escenario en el cual se quieren crear volúmenes con datasets distintos y hacer un entrenamiento distribuído y paralelizado para mejorar el tiempo de entrenamiento y experimentar con el modelo. Dicha tarea requiere la creación de múltiples volúmenes, por lo cual se usa Kubernetes para realizar esta tarea. Se hizo uso del dashboard de Kubernetes para corroborar que el deployment se haya realizado de manera correcta.
 
 De forma así, se cubre el enfoque de Cloud y AI/ML propuesto para este proyecto.
 
-## Resultados
-[Por completar]
+## Prerequisitos
+- [Docker](https://docs.docker.com/get-docker/)
+- [Kubernetes (Minikube)](https://minikube.sigs.k8s.io/docs/start/)
 
-## Conclusiones
-[Por completar].
+## Ejecución
+Primero pullear la información del repositorio de GitHub para tener los archivos.
+
+```git clone https://github.com/davento/cc-2023-2-proyecto.git```
+
+Una vez se tengan, para correr el contenedor en **Docker**, indicar el puerto y la ubicación de los datos a montar en el volumen
+```docker run -p 8888:8888 -v .:/home/jovyan/work strobebug/plant-classifier:1.0```
+
+Con ello ya debería poder tenerse acceso.
+
+Para correrlo en **Kubernetes**, inicializar Minikube
+```minikube start```
+
+También cargar el dashboard para corroborar que todo esté bien
+```minikube dashboard url```
+
+Luego cargar los pods
+```kubectl apply -f .\deployment.yaml```
+> Nótese que se tuvo que crear un [secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/    ) para poder descargar la imagen de Docker en Kubernetes.
+
+Tras ello, inicializar el servicio
+```minikube service plant-classifier```
+
+Después, visualizar los pods, sea desde el dashboard o la terminal utilizando
+```kubectl get pods --all-namespaces```
+
+Copiar el nombre del pod que corresponda al servicio y correr
+```kubectl logs pod/<nombre del pod>```
+Por ejemplo,
+```kubectl logs pod/plant-classifier-5c85b89567-fqpm2```
+Con ello extraer el token que sale al final del url y copiarlo en la interfaz mostrada o seleccionar el link directamente.
+
+Con ello se debe tener acceso a la interfaz mediante minikube.
+
+## Resultados
+Se pudo practicar con herramientas de desarrollo en la nube y experimentar con ellos con un aplicativo. Asimismo, se lograron solucionar las limitaciones indicadas en el proyecto original puesto que pudieron correr los archivos sin necesidad de usar una plataforma de un tercero para cargar los archivos y, también se logró correr el notebook de manera local y de manera rápida y efectiva.
+
+Por dicho motivo se indica que los resultados fueron satisfactorios para los objetivos planteados para el proyecto.
 
 ## Bibliografía
 
@@ -44,11 +80,15 @@ M. Doctor Yuste. 2021. *"How to Create a Docker Image with Jupyter Notebook and 
 
 S. Okada. 2020. *"How to Run Jupyter Notebook on Docker"*. Medium. [https://medium.com/p/7c9748ed209f](https://medium.com/p/7c9748ed209f)
 
-[https://docs.docker.com/get-started/orchestration/](https://docs.docker.com/get-started/orchestration/)
+Docker. 2023. *Deployment and orchestration*. Docker Docs. [https://docs.docker.com/get-started/orchestration/](https://docs.docker.com/get-started/orchestration/)
 
-[https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+Kubernetes. 2023. *Pull an Image from a Private Registry*. Kubernetes Documentation. [https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
 
-[https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+Kubernetes. 2023. *Deploy and Access the Kubernetes Dashboard*. Kubernetes Documentation. [https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+
+Kubernetes. 2023. *Configure a Pod to Use a PersistentVolume for Storage*. Kubernetes Documentation. [https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)
+
+J. Chen. 2021. *[k8s] How to mount local directory (persistent volume) to Kubernetes pods of Docker Desktop for Mac?* Medium. [https://julien-chen.medium.com/k8s-how-to-mount-local-directory-persistent-volume-to-kubernetes-pods-of-docker-desktop-for-mac-b72f3ca6b0dd](https://julien-chen.medium.com/k8s-how-to-mount-local-directory-persistent-volume-to-kubernetes-pods-of-docker-desktop-for-mac-b72f3ca6b0dd)
 
 ## Anexos
 
