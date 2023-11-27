@@ -53,7 +53,7 @@ También cargar el dashboard para corroborar que todo esté bien
 
 Luego cargar los pods
 ```kubectl apply -f .\deployment.yaml```
-> Nótese que se tuvo que crear un [secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/    ) para poder descargar la imagen de Docker en Kubernetes.
+> Nótese que se tuvo que crear un [secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/    ) para poder descargar la imagen de Docker en Kubernetes. Además, reemplazar la dirección de la carpeta para el mount en el `deployment.yaml`.
 
 Tras ello, inicializar el servicio
 ```minikube service plant-classifier```
